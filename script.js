@@ -1,5 +1,7 @@
 'use strict';
 const table = document.createElement('table');
+const mainDiv = document.createElement('div');
+mainDiv.classList.add(...['w-50', 'm-auto']);
 const win = new Audio('sound/win.mp3');
 let numArr = [];
 let rows;
@@ -52,8 +54,8 @@ function createBord() {
   } // next row;
 
   table.innerHTML = markup;
-
-  document.body.appendChild(table);
+  document.body.appendChild(mainDiv);
+  mainDiv.appendChild(table);
   table.style.marginTop = 15 + 'px';
 }
 
