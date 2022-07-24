@@ -2,7 +2,7 @@
 const messages = [
   'VERY GOOD 🥇',
   'EXCELLENT 🏆 ',
-  'AMAZING 👋',
+  'AMAZING 🙌',
   'WELL DONE 🙂',
 ];
 const table = document.createElement('table');
