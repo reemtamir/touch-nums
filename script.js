@@ -1,6 +1,6 @@
 'use strict';
 const table = document.createElement('table');
-const win = new Audio('./sound/win.mp3');
+const win = new Audio('sound/win.mp3');
 let numArr = [];
 let rows;
 let cols;
