@@ -4,20 +4,17 @@ body {
 
 table,
 td {
-  border: 1px solid black;
-
   font-family: monospace;
   text-align: center;
   margin: auto;
   font-size: 4rem;
 }
 
-table {
-  border-collapse: collapse;
-}
-
 td {
   width: 2.5em;
+  border-radius: 10%;
+  border: 1px solid black;
+  box-shadow: 4px 4px 4px 4px rgb(51, 68, 73);
 }
 .bg-color {
   background-color: burlywood;

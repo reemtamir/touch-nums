@@ -1,7 +1,13 @@
 'use strict';
+const messages = [
+  'VERY GOOD 🥇',
+  'EXCELLENT 🏆 ',
+  'AMAZING 👋',
+  'WELL DONE 🙂',
+];
 const table = document.createElement('table');
 const mainDiv = document.createElement('div');
-mainDiv.classList.add(...['w-50', 'm-auto']);
+mainDiv.classList.add(...['w-75', 'm-auto', 'text-center']);
 const win = new Audio('sound/win.mp3');
 let numArr = [];
 let rows;
@@ -15,8 +21,13 @@ for (let key of letter) {
 }
 
 function resetGame() {
+  nextNumber.style.backgroundColor = 'lightcoral';
+  nextNumber.style.color = 'black';
+  nextNumber.innerHTML = 'GOOD LUCK';
   timer.innerHTML = `  GAME TIME <br />
   00.000`;
+  timer.style.backgroundColor = '#66133133';
+  timer.style.color = 'black';
   table.innerHTML = '';
   for (let key of letter) {
     key.style.color = getRandomColor();
@@ -56,7 +67,7 @@ function createBord() {
   table.innerHTML = markup;
   document.body.appendChild(mainDiv);
   mainDiv.appendChild(table);
-  table.style.marginTop = 15 + 'px';
+  table.classList.add(...['mb-5', 'mt-5']);
 }
 
 let num = 0;
@@ -73,7 +84,13 @@ function cellClicked(ev) {
 
   if (num === rows * cols) {
     num = 0;
-    nextNumber.innerHTML = `VERY GOOD! 🥇`;
+
+    let tempMessage = messages[Math.floor(Math.random() * messages.length)];
+    nextNumber.innerHTML = tempMessage;
+    nextNumber.style.color = getRandomColor();
+    nextNumber.style.backgroundColor = 'black';
+    timer.style.backgroundColor = 'black';
+    timer.style.color = 'white';
 
     win.play();
     stopTimer();
