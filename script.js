@@ -7,8 +7,19 @@ let cols;
 let markup = '';
 let randomIndex = 0;
 let nextNumber = document.querySelector('.next-number');
+let letter = document.querySelectorAll('.l');
+for (let key of letter) {
+  key.style.color = getRandomColor();
+}
+
 function resetGame() {
+  timer.innerHTML = `  GAME TIME <br />
+  00.000`;
   table.innerHTML = '';
+  for (let key of letter) {
+    key.style.color = getRandomColor();
+  }
+
   numArr = [];
   rows;
   cols;
@@ -54,12 +65,14 @@ function cellClicked(ev) {
   }</span>`;
   startTimer();
 
-  ev.classList.add('bg-color');
+  ev.classList.add(...['bg-color', 'text-muted']);
+
   num++;
 
   if (num === rows * cols) {
     num = 0;
     nextNumber.innerHTML = `VERY GOOD! 🥇`;
+
     win.play();
     stopTimer();
   }
@@ -103,4 +116,12 @@ function timerCycle() {
     ${mic}:${sec} `;
     setTimeout('timerCycle()', 10);
   }
+}
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
