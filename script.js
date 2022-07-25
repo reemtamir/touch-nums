@@ -21,11 +21,11 @@ for (let key of letter) {
 }
 
 function resetGame() {
+  resetTimer();
   nextNumber.style.backgroundColor = 'lightcoral';
   nextNumber.style.color = 'black';
   nextNumber.innerHTML = 'GOOD LUCK';
-  timer.innerHTML = `  GAME TIME <br />
-  00.000`;
+
   timer.style.backgroundColor = '#66133133';
   timer.style.color = 'black';
   table.innerHTML = '';
@@ -135,6 +135,14 @@ function timerCycle() {
     ${mic}:${sec} `;
     setTimeout('timerCycle()', 10);
   }
+}
+function resetTimer() {
+  timer.innerHTML = `  GAME TIME <br />
+  00.000`;
+
+  mic = 0;
+  sec = 0;
+  stopTime = true;
 }
 function getRandomColor() {
   var letters = '0123456789ABCDEF';
